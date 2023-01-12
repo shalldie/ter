@@ -7,23 +7,30 @@
 
 Ternary operator in golang. Golang 三元运算。
 
-Need v1.18+
-
 ## Installation
 
 ```bash
 go get github.com/shalldie/ter
 ```
 
-## Example
+## Methods&Examples
 
 ```go
-ter.True(true, 1, 2) // 1
+// True(a, b, c) such as a ? b : c
+
+ter.True(true, 1, 2)  // 1
 ter.True(false, 1, 2) // 2
 ```
 
 ```go
+ter.Truthy(1, 1, 2)     // 1
 
+// Truth treat these as false: false, 0, "", nil
+
+ter.Truthy(false, 1, 2) // 2
+ter.Truthy(0, 1, 2)     // 2
+ter.Truthy("", 1, 2)    // 2
+ter.Truthy(nil, 1, 2)   // 2
 ```
 
 ## License
